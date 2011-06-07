@@ -32,7 +32,15 @@
 // messages and qltrace() for trace messages. Additionally, all logging macros
 // take the current log component from the ql_component preprocessor define
 // which can be (re)defined in your application at a file-level, section-based,
-// or global scope.
+// or global scope. If you want to include the log component in your logging
+// statements instead of using the ql_component define, you can use the _c
+// variants of the logging macros which take the log component as the first
+// argument, e.g. qlerror_c(lcl_cMain), qltrace_c(lcl_cMain, @"message").
+//
+
+
+//
+// qlog macros which use the currently active ql_component
 //
 
 
@@ -53,6 +61,11 @@
 
 #define qltrace(...)                                                           \
     lcl_log(ql_component, lcl_vTrace, @"" __VA_ARGS__);
+
+
+//
+// qlog-_c macros which take the log component as first argument
+//
 
 
 #define qlcritical_c(log_component, ...)                                       \
