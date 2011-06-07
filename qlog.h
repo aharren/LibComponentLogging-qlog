@@ -54,3 +54,22 @@
 #define qltrace(...)                                                           \
     lcl_log(ql_component, lcl_vTrace, @"" __VA_ARGS__);
 
+
+#define qlcritical_c(log_component, ...)                                       \
+    lcl_log(log_component, lcl_vCritical, @"" __VA_ARGS__);
+
+#define qlerror_c(log_component, ...)                                          \
+    lcl_log(log_component, lcl_vError, @"" __VA_ARGS__);
+
+#define qlwarning_c(log_component, ...)                                        \
+    lcl_log(log_component, lcl_vWarning, @"" __VA_ARGS__);
+
+#define qlinfo_c(log_component, ...)                                           \
+    lcl_log(log_component, lcl_vInfo, @"" __VA_ARGS__);
+
+#define qldebug_c(log_component, ...)                                          \
+    lcl_log(log_component, lcl_vDebug, @"" __VA_ARGS__);
+
+#define qltrace_c(log_component, ...)                                          \
+    lcl_log(log_component, lcl_vTrace, @"" __VA_ARGS__);
+
