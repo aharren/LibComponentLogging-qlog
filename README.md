@@ -15,7 +15,10 @@ every log level of LibComponentLogging, e.g. qlerror() for error messages
 and qltrace() for trace messages. Additionally, all logging macros take the
 current log component from the ql_component preprocessor define which can
 be (re)defined in your application at a file-level, section-based, or global
-scope.
+scope. If you want to include the log component in your logging statements
+instead of using the ql_component define, you can use the _c variants of
+the logging macros which take the log component as the first argument, e.g.
+qlerror_c(lcl_cMain), qltrace_c(lcl_cMain, @"message").
 
 
 ## Usage
@@ -53,6 +56,14 @@ a #undef #define sequence at the top of the file, e.g.
     #undef ql_component
     #define ql_component lcl_cFileLevelComponent
 
+If you want to use a specific log component at a specific location in your code,
+you can use the _c variants of the macros which take the log component as the
+first argument, e.g.
+
+    qlinfo_c(lcl_cMain, @"initialized");
+    qlerror_c(lcl_cMain, @"file '%@' does not exist", file);
+    qltrace_c(lcl_cMain);
+
 
 ## Related Repositories
 
@@ -64,7 +75,7 @@ The following Git repositories are related to this repository:
 
 ## Copyright and License
 
-Copyright (c) 2009-2010 Arne Harren <ah@0xc0.de>
+Copyright (c) 2009-2011 Arne Harren <ah@0xc0.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
