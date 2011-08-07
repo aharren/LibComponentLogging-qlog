@@ -1,6 +1,6 @@
 //
 //
-// qlog.h -- 1.0.2
+// qlog.h -- 1.0.3
 //
 //
 // Copyright (c) 2009-2011 Arne Harren <ah@0xc0.de>
