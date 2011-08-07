@@ -1,6 +1,6 @@
 //
 //
-// qlog.h -- 1.0.2
+// qlog.h -- 1.0.3
 //
 //
 // Copyright (c) 2009-2011 Arne Harren <ah@0xc0.de>
@@ -45,22 +45,22 @@
 
 
 #define qlcritical(...)                                                        \
-    lcl_log(ql_component, lcl_vCritical, @"" __VA_ARGS__);
+    lcl_log(ql_component, lcl_vCritical, @"" __VA_ARGS__)
 
 #define qlerror(...)                                                           \
-    lcl_log(ql_component, lcl_vError, @"" __VA_ARGS__);
+    lcl_log(ql_component, lcl_vError, @"" __VA_ARGS__)
 
 #define qlwarning(...)                                                         \
-    lcl_log(ql_component, lcl_vWarning, @"" __VA_ARGS__);
+    lcl_log(ql_component, lcl_vWarning, @"" __VA_ARGS__)
 
 #define qlinfo(...)                                                            \
-    lcl_log(ql_component, lcl_vInfo, @"" __VA_ARGS__);
+    lcl_log(ql_component, lcl_vInfo, @"" __VA_ARGS__)
 
 #define qldebug(...)                                                           \
-    lcl_log(ql_component, lcl_vDebug, @"" __VA_ARGS__);
+    lcl_log(ql_component, lcl_vDebug, @"" __VA_ARGS__)
 
 #define qltrace(...)                                                           \
-    lcl_log(ql_component, lcl_vTrace, @"" __VA_ARGS__);
+    lcl_log(ql_component, lcl_vTrace, @"" __VA_ARGS__)
 
 
 //
@@ -69,20 +69,20 @@
 
 
 #define qlcritical_c(log_component, ...)                                       \
-    lcl_log(log_component, lcl_vCritical, @"" __VA_ARGS__);
+    lcl_log(log_component, lcl_vCritical, @"" __VA_ARGS__)
 
 #define qlerror_c(log_component, ...)                                          \
-    lcl_log(log_component, lcl_vError, @"" __VA_ARGS__);
+    lcl_log(log_component, lcl_vError, @"" __VA_ARGS__)
 
 #define qlwarning_c(log_component, ...)                                        \
-    lcl_log(log_component, lcl_vWarning, @"" __VA_ARGS__);
+    lcl_log(log_component, lcl_vWarning, @"" __VA_ARGS__)
 
 #define qlinfo_c(log_component, ...)                                           \
-    lcl_log(log_component, lcl_vInfo, @"" __VA_ARGS__);
+    lcl_log(log_component, lcl_vInfo, @"" __VA_ARGS__)
 
 #define qldebug_c(log_component, ...)                                          \
-    lcl_log(log_component, lcl_vDebug, @"" __VA_ARGS__);
+    lcl_log(log_component, lcl_vDebug, @"" __VA_ARGS__)
 
 #define qltrace_c(log_component, ...)                                          \
-    lcl_log(log_component, lcl_vTrace, @"" __VA_ARGS__);
+    lcl_log(log_component, lcl_vTrace, @"" __VA_ARGS__)
 
