@@ -41,6 +41,9 @@
 // macros which take the log component as the first argument, e.g.
 // qlerror_c(lcl_cMain), or qltrace_c(lcl_cMain, @"message").
 //
+// The *_if variants of the qlog macros use LibComponentLogging's lcl_log_if
+// conditional logging macro.
+//
 // To install qlog, just copy the qlog.h header file to your project and add
 // an import of qlog.h to your prefix header file or to your LibComponentLogging
 // extensions configuration file lcl_config_extensions.h:
@@ -104,6 +107,30 @@
 
 
 //
+// qlog-_if macros which use the currently active ql_component
+//
+
+
+#define qlcritical_if(predicate, ...)                                          \
+    lcl_log_if(ql_component, lcl_vCritical, predicate, @"" __VA_ARGS__)
+
+#define qlerror_if(predicate, ...)                                             \
+    lcl_log_if(ql_component, lcl_vError, predicate, @"" __VA_ARGS__)
+
+#define qlwarning_if(predicate, ...)                                           \
+    lcl_log_if(ql_component, lcl_vWarning, predicate, @"" __VA_ARGS__)
+
+#define qlinfo_if(predicate, ...)                                              \
+    lcl_log_if(ql_component, lcl_vInfo, predicate, @"" __VA_ARGS__)
+
+#define qldebug_if(predicate, ...)                                             \
+    lcl_log_if(ql_component, lcl_vDebug, predicate, @"" __VA_ARGS__)
+
+#define qltrace_if(predicate, ...)                                             \
+    lcl_log_if(ql_component, lcl_vTrace, predicate, @"" __VA_ARGS__)
+
+
+//
 // qlog-_c macros which take the log component as first argument
 //
 
@@ -125,4 +152,28 @@
 
 #define qltrace_c(log_component, ...)                                          \
     lcl_log(log_component, lcl_vTrace, @"" __VA_ARGS__)
+
+
+//
+// qlog-_c_if macros which take the log component as first argument
+//
+
+
+#define qlcritical_c_if(log_component, predicate, ...)                         \
+    lcl_log_if(log_component, lcl_vCritical, predicate, @"" __VA_ARGS__)
+
+#define qlerror_c_if(log_component, predicate, ...)                            \
+    lcl_log_if(log_component, lcl_vError, predicate, @"" __VA_ARGS__)
+
+#define qlwarning_c_if(log_component, predicate, ...)                          \
+    lcl_log_if(log_component, lcl_vWarning, predicate, @"" __VA_ARGS__)
+
+#define qlinfo_c_if(log_component, predicate, ...)                             \
+    lcl_log_if(log_component, lcl_vInfo, predicate, @"" __VA_ARGS__)
+
+#define qldebug_c_if(log_component, predicate, ...)                            \
+    lcl_log_if(log_component, lcl_vDebug, predicate, @"" __VA_ARGS__)
+
+#define qltrace_c_if(log_component, predicate, ...)                            \
+    lcl_log_if(log_component, lcl_vTrace, predicate, @"" __VA_ARGS__)
 
