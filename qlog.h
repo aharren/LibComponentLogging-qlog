@@ -81,29 +81,43 @@
 //  qltrace_c(lcl_cMain);
 //
 
+//
+// Alloq use qlog in C apps
+//
+
+#ifndef __OBJC__
+#    ifndef _LCL_LOG_C_STRING
+#        define _LCL_LOG_C_STRING
+#    endif
+#endif
+
+#ifdef _LCL_LOG_C_STRING
+#    define _qlog_str ""
+#else
+#    define _qlog_str @""
+#endif
 
 //
 // qlog macros which use the currently active ql_component
 //
 
-
 #define qlcritical(...)                                                        \
-    lcl_log(ql_component, lcl_vCritical, @"" __VA_ARGS__)
+    lcl_log(ql_component, lcl_vCritical, _qlog_str __VA_ARGS__)
 
 #define qlerror(...)                                                           \
-    lcl_log(ql_component, lcl_vError, @"" __VA_ARGS__)
+    lcl_log(ql_component, lcl_vError, _qlog_str __VA_ARGS__)
 
 #define qlwarning(...)                                                         \
-    lcl_log(ql_component, lcl_vWarning, @"" __VA_ARGS__)
+    lcl_log(ql_component, lcl_vWarning, _qlog_str __VA_ARGS__)
 
 #define qlinfo(...)                                                            \
-    lcl_log(ql_component, lcl_vInfo, @"" __VA_ARGS__)
+    lcl_log(ql_component, lcl_vInfo, _qlog_str __VA_ARGS__)
 
 #define qldebug(...)                                                           \
-    lcl_log(ql_component, lcl_vDebug, @"" __VA_ARGS__)
+    lcl_log(ql_component, lcl_vDebug, _qlog_str __VA_ARGS__)
 
 #define qltrace(...)                                                           \
-    lcl_log(ql_component, lcl_vTrace, @"" __VA_ARGS__)
+    lcl_log(ql_component, lcl_vTrace, _qlog_str __VA_ARGS__)
 
 
 //
@@ -112,22 +126,22 @@
 
 
 #define qlcritical_if(predicate, ...)                                          \
-    lcl_log_if(ql_component, lcl_vCritical, predicate, @"" __VA_ARGS__)
+    lcl_log_if(ql_component, lcl_vCritical, predicate, _qlog_str __VA_ARGS__)
 
 #define qlerror_if(predicate, ...)                                             \
-    lcl_log_if(ql_component, lcl_vError, predicate, @"" __VA_ARGS__)
+    lcl_log_if(ql_component, lcl_vError, predicate, _qlog_str __VA_ARGS__)
 
 #define qlwarning_if(predicate, ...)                                           \
-    lcl_log_if(ql_component, lcl_vWarning, predicate, @"" __VA_ARGS__)
+    lcl_log_if(ql_component, lcl_vWarning, predicate, _qlog_str __VA_ARGS__)
 
 #define qlinfo_if(predicate, ...)                                              \
-    lcl_log_if(ql_component, lcl_vInfo, predicate, @"" __VA_ARGS__)
+    lcl_log_if(ql_component, lcl_vInfo, predicate, _qlog_str __VA_ARGS__)
 
 #define qldebug_if(predicate, ...)                                             \
-    lcl_log_if(ql_component, lcl_vDebug, predicate, @"" __VA_ARGS__)
+    lcl_log_if(ql_component, lcl_vDebug, predicate, _qlog_str __VA_ARGS__)
 
 #define qltrace_if(predicate, ...)                                             \
-    lcl_log_if(ql_component, lcl_vTrace, predicate, @"" __VA_ARGS__)
+    lcl_log_if(ql_component, lcl_vTrace, predicate, _qlog_str __VA_ARGS__)
 
 
 //
@@ -136,22 +150,22 @@
 
 
 #define qlcritical_c(log_component, ...)                                       \
-    lcl_log(log_component, lcl_vCritical, @"" __VA_ARGS__)
+    lcl_log(log_component, lcl_vCritical, _qlog_str __VA_ARGS__)
 
 #define qlerror_c(log_component, ...)                                          \
-    lcl_log(log_component, lcl_vError, @"" __VA_ARGS__)
+    lcl_log(log_component, lcl_vError, _qlog_str __VA_ARGS__)
 
 #define qlwarning_c(log_component, ...)                                        \
-    lcl_log(log_component, lcl_vWarning, @"" __VA_ARGS__)
+    lcl_log(log_component, lcl_vWarning, _qlog_str __VA_ARGS__)
 
 #define qlinfo_c(log_component, ...)                                           \
-    lcl_log(log_component, lcl_vInfo, @"" __VA_ARGS__)
+    lcl_log(log_component, lcl_vInfo, _qlog_str __VA_ARGS__)
 
 #define qldebug_c(log_component, ...)                                          \
-    lcl_log(log_component, lcl_vDebug, @"" __VA_ARGS__)
+    lcl_log(log_component, lcl_vDebug, _qlog_str __VA_ARGS__)
 
 #define qltrace_c(log_component, ...)                                          \
-    lcl_log(log_component, lcl_vTrace, @"" __VA_ARGS__)
+    lcl_log(log_component, lcl_vTrace, _qlog_str __VA_ARGS__)
 
 
 //
@@ -160,20 +174,20 @@
 
 
 #define qlcritical_c_if(log_component, predicate, ...)                         \
-    lcl_log_if(log_component, lcl_vCritical, predicate, @"" __VA_ARGS__)
+    lcl_log_if(log_component, lcl_vCritical, predicate, _qlog_str __VA_ARGS__)
 
 #define qlerror_c_if(log_component, predicate, ...)                            \
-    lcl_log_if(log_component, lcl_vError, predicate, @"" __VA_ARGS__)
+    lcl_log_if(log_component, lcl_vError, predicate, _qlog_str __VA_ARGS__)
 
 #define qlwarning_c_if(log_component, predicate, ...)                          \
-    lcl_log_if(log_component, lcl_vWarning, predicate, @"" __VA_ARGS__)
+    lcl_log_if(log_component, lcl_vWarning, predicate, _qlog_str __VA_ARGS__)
 
 #define qlinfo_c_if(log_component, predicate, ...)                             \
-    lcl_log_if(log_component, lcl_vInfo, predicate, @"" __VA_ARGS__)
+    lcl_log_if(log_component, lcl_vInfo, predicate, _qlog_str __VA_ARGS__)
 
 #define qldebug_c_if(log_component, predicate, ...)                            \
-    lcl_log_if(log_component, lcl_vDebug, predicate, @"" __VA_ARGS__)
+    lcl_log_if(log_component, lcl_vDebug, predicate, _qlog_str __VA_ARGS__)
 
 #define qltrace_c_if(log_component, predicate, ...)                            \
-    lcl_log_if(log_component, lcl_vTrace, predicate, @"" __VA_ARGS__)
+    lcl_log_if(log_component, lcl_vTrace, predicate, _qlog_str __VA_ARGS__)
 
