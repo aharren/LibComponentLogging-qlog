@@ -91,7 +91,7 @@
 #    endif
 #endif
 
-#ifdef _LCL_LOG_C_STRING
+#if (defined(_LCL_LOG_C_STRING)) || (defined(__lcl_c_mode))
 #    define _qlog_str ""
 #else
 #    define _qlog_str @""
