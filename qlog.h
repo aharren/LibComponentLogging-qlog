@@ -82,7 +82,7 @@
 //
 
 //
-// Alloq use qlog in C apps
+// Allow use qlog in C apps
 //
 
 #ifndef __OBJC__
