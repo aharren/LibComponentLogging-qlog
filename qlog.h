@@ -1,9 +1,9 @@
 //
 //
-// qlog.h -- 1.1.1
+// qlog.h -- 1.1.2
 //
 //
-// Copyright (c) 2009-2012 Arne Harren <ah@0xc0.de>
+// Copyright (c) 2009-2015 Arne Harren <ah@0xc0.de>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -82,7 +82,7 @@
 //
 
 //
-// Alloq use qlog in C apps
+// Allow use qlog in C apps
 //
 
 #ifndef __OBJC__
@@ -91,7 +91,7 @@
 #    endif
 #endif
 
-#ifdef _LCL_LOG_C_STRING
+#if (defined(_LCL_LOG_C_STRING)) || (defined(__lcl_c_mode))
 #    define _qlog_str ""
 #else
 #    define _qlog_str @""
